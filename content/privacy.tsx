@@ -7,84 +7,112 @@ export type RichSection = {
   body: ReactNode;
 };
 
-// TODO: revisar con asesor legal
-// TODO: reemplazar [FECHA] por la fecha real de publicación
-export const privacyUpdated = "[FECHA]";
+export const privacyUpdated = "30 de septiembre de 2026";
 
 const p = "text-base leading-[1.7] text-ivory/85";
+const list = "list-disc space-y-2 pl-5 text-ivory/85";
+
+function ContactEmail() {
+  return (
+    <a href={`mailto:${site.email}`} className="text-gold-400 underline-offset-4 hover:underline">
+      {site.email}
+    </a>
+  );
+}
 
 export const privacySections: RichSection[] = [
   {
-    id: "responsable",
-    title: "1. Responsable del tratamiento",
+    id: "quienes-somos",
+    title: "1. Quiénes somos",
     body: (
-      <p className={p}>
-        El responsable del tratamiento de los datos personales recogidos a través de este sitio es {site.name}.
-        Para consultas sobre tus datos puedes escribir a {site.email}.
-      </p>
+      <div className="space-y-4">
+        <p className={p}>
+          VisionG LLC («VisionG», «nosotros») es una empresa de consultoría y servicios de marketing y ventas para
+          negocios digitales. Esta política explica qué datos personales recolectamos a través de este sitio, con qué
+          finalidad los usamos, con quién los compartimos y qué derechos tienes sobre ellos.
+        </p>
+        <p className={p}>
+          Puedes contactarnos por cualquier cuestión vinculada a tus datos personales escribiendo a <ContactEmail />.
+        </p>
+      </div>
     ),
   },
   {
     id: "datos",
-    title: "2. Qué datos recopilamos",
+    title: "2. Qué datos recolectamos",
     body: (
       <div className="space-y-4">
         <p className={p}>
-          Recopilamos los datos que nos envías de forma voluntaria mediante el formulario de contacto: nombre,
-          email, nombre de la empresa o negocio, Instagram o sitio web si lo indicas, tipo de negocio, descripción
-          de tu situación y de lo que buscas mejorar, rango de facturación mensual aproximada y cómo conociste
-          VisionG.
+          <strong>Datos que nos das voluntariamente:</strong> nombre, correo electrónico, nombre de tu negocio,
+          Instagram o sitio web, tipo de negocio, facturación mensual aproximada y la información sobre tu negocio que
+          nos compartas en el formulario de contacto, por correo o en una reunión.
         </p>
         <p className={p}>
-          El servidor de hosting puede registrar datos técnicos mínimos de la solicitud, como la dirección IP, para
-          limitar envíos abusivos del formulario. No pedimos datos de pago en este sitio.
+          <strong>Datos técnicos de navegación:</strong> dirección IP, tipo de dispositivo, navegador y páginas
+          visitadas, que pueden ser registrados por nuestro proveedor de alojamiento para el funcionamiento y la
+          seguridad del sitio.
+        </p>
+        <p className={p}>
+          No solicitamos ni queremos recibir datos sensibles ni datos de menores de 18 años. Si nos los envías
+          igualmente, los eliminamos.
         </p>
       </div>
     ),
   },
   {
     id: "finalidad",
-    title: "3. Para qué los utilizamos",
+    title: "3. Para qué los usamos",
     body: (
-      <ul className="list-disc space-y-2 pl-5 text-ivory/85">
-        <li>Responder tu solicitud de consulta.</li>
-        <li>Evaluar si los servicios son adecuados para tu situación.</li>
-        <li>Enviarte una propuesta cuando corresponda.</li>
-        <li>
-          Enviarte comunicaciones comerciales solo si lo aceptas de forma expresa en un momento posterior. El
-          formulario de contacto no implica la suscripción a un boletín.
-        </li>
-      </ul>
+      <div className="space-y-4">
+        <ul className={list}>
+          <li>Responder tus consultas y coordinar una conversación inicial.</li>
+          <li>Evaluar si nuestros servicios son adecuados para tu negocio.</li>
+          <li>Preparar diagnósticos y propuestas comerciales.</li>
+          <li>Prestar y administrar los servicios de consultoría contratados.</li>
+          <li>Enviarte comunicaciones sobre nuestros servicios, si nos diste tu consentimiento.</li>
+          <li>Cumplir con obligaciones legales, fiscales y contables.</li>
+        </ul>
+        <p className={p}>
+          No vendemos, alquilamos ni cedemos tus datos personales a terceros con fines publicitarios.
+        </p>
+      </div>
     ),
   },
   {
-    id: "almacenamiento",
-    title: "4. Cómo los almacenamos y protegemos",
+    id: "base-legal",
+    title: "4. Base legal del tratamiento",
     body: (
       <p className={p}>
-        Este sitio no guarda los envíos del formulario en una base de datos propia. La información se transmite por
-        una conexión cifrada al proveedor de email configurado y, si está activo, a una herramienta de
-        automatización. El acceso queda limitado a quienes gestionan las solicitudes de VisionG. Las claves de esos
-        servicios se almacenan como variables de entorno del servidor y no se publican en el sitio.
+        Tratamos tus datos con tu consentimiento, que prestas al enviarnos tu información; para ejecutar el contrato o
+        los pasos previos que solicitas; y para cumplir obligaciones legales. Puedes retirar tu consentimiento en
+        cualquier momento, sin que eso afecte la licitud del tratamiento anterior.
       </p>
     ),
   },
   {
-    id: "proveedores",
-    title: "5. Proveedores externos",
+    id: "compartimos",
+    title: "5. Con quién los compartimos",
     body: (
       <div className="space-y-4">
         <p className={p}>
-          Algunos proveedores pueden tratar datos en nuestro nombre para prestar el servicio. La lista debe
-          completarse con los proveedores efectivamente contratados:
+          Compartimos datos únicamente con proveedores que nos permiten operar, y solo en la medida necesaria:
         </p>
-        <ul className="list-disc space-y-2 pl-5 text-ivory/85">
-          {/* TODO: reemplazar los placeholders de proveedores */}
-          <li>Hosting: [PROVEEDOR DE HOSTING — ej. Vercel]</li>
-          <li>Email del formulario: [PROVEEDOR DE EMAIL — ej. Web3Forms]</li>
-          <li>CRM o automatización: [HERRAMIENTA CRM — ej. n8n / Make]</li>
-          <li>Procesador de pagos: [PROCESADOR DE PAGOS — ej. Stripe]</li>
+        <ul className={list}>
+          <li>
+            <strong>Vercel</strong>: alojamiento del sitio.
+          </li>
+          <li>
+            <strong>Web3Forms</strong>: envío por correo electrónico de los datos del formulario de contacto.
+          </li>
+          <li>
+            <strong>Stripe</strong>: procesamiento de pagos, cuando corresponda.
+          </li>
         </ul>
+        <p className={p}>
+          Estos proveedores pueden almacenar información en servidores ubicados en otros países; en esos casos
+          exigimos que apliquen estándares de protección adecuados. También podemos compartir información cuando una
+          autoridad competente lo requiera por ley.
+        </p>
       </div>
     ),
   },
@@ -93,52 +121,62 @@ export const privacySections: RichSection[] = [
     title: "6. Cookies",
     body: (
       <p className={p}>
-        Esta versión del sitio no utiliza cookies de analítica ni de publicidad. Si más adelante se incorpora una
-        herramienta de medición, esta política se actualizará para describirla y, cuando corresponda, solicitar el
-        consentimiento.
+        Este sitio no utiliza cookies publicitarias ni de seguimiento. Nuestro proveedor de alojamiento puede utilizar
+        cookies técnicas necesarias para el funcionamiento y la seguridad del sitio. Puedes bloquearlas o eliminarlas
+        desde la configuración de tu navegador.
       </p>
     ),
   },
   {
-    id: "comunicaciones",
-    title: "7. Comunicaciones comerciales",
+    id: "conservacion",
+    title: "7. Cuánto tiempo los conservamos",
     body: (
       <p className={p}>
-        Puedes pedir que dejemos de enviarte comunicaciones comerciales en cualquier momento, respondiendo al
-        mensaje o escribiendo a {site.email}. Eso no afecta los mensajes necesarios para responder una consulta o
-        ejecutar un servicio ya contratado.
+        Conservamos los datos de contacto mientras exista una relación comercial o un interés legítimo en mantenerla y,
+        luego, durante los plazos que exijan las normas fiscales y comerciales aplicables. Cumplidos esos plazos, los
+        eliminamos o los anonimizamos.
+      </p>
+    ),
+  },
+  {
+    id: "seguridad",
+    title: "8. Seguridad",
+    body: (
+      <p className={p}>
+        Aplicamos medidas técnicas y organizativas razonables para proteger tus datos contra accesos no autorizados,
+        pérdida o alteración, incluyendo conexiones cifradas y accesos restringidos a las herramientas que utilizamos.
+        Ningún sistema es infalible, por lo que no podemos garantizar seguridad absoluta.
       </p>
     ),
   },
   {
     id: "derechos",
-    title: "8. Derechos del usuario",
+    title: "9. Tus derechos",
     body: (
       <p className={p}>
-        Puedes solicitar acceso, rectificación, eliminación u oposición respecto de los datos que nos hayas
-        facilitado. Para ejercer estos derechos, escribe a {site.email} e indica el derecho que quieres ejercer y
-        un medio para responderte.
+        Tienes derecho a acceder, rectificar, actualizar y suprimir tus datos personales, y a oponerte a su tratamiento
+        o solicitar su portabilidad. Para ejercerlos, escríbenos a <ContactEmail /> indicando tu solicitud.
+        Responderemos dentro de los plazos legales aplicables.
       </p>
     ),
   },
   {
-    id: "contacto",
-    title: "9. Cómo contactarnos respecto de tus datos",
+    id: "enlaces",
+    title: "10. Enlaces a sitios de terceros",
     body: (
       <p className={p}>
-        Las solicitudes relacionadas con privacidad se envían a {site.email}. Responderemos por el mismo medio
-        cuando hayamos podido verificar la solicitud.
+        Este sitio enlaza a plataformas de terceros, como Instagram. Una vez que sales de nuestro sitio, tus datos
+        pasan a regirse por las políticas de privacidad de esas plataformas, sobre las que no tenemos control.
       </p>
     ),
   },
   {
     id: "cambios",
-    title: "10. Cambios a esta política",
+    title: "11. Cambios en esta política",
     body: (
       <p className={p}>
-        Podemos actualizar esta política para reflejar cambios del sitio o de los proveedores. La fecha de la
-        última actualización figura al inicio de esta página. El uso del sitio después de una actualización implica
-        que la versión publicada es la vigente.
+        Podemos actualizar esta política para reflejar cambios en nuestros servicios o en la normativa aplicable.
+        Publicaremos la versión vigente en esta misma página, con su fecha de última actualización.
       </p>
     ),
   },

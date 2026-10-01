@@ -9,14 +9,6 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalLayout
-      title="Términos y Condiciones"
-      updated={termsUpdated}
-      notice="Texto pendiente de publicación. Cada sección está preparada para pegar el documento oficial."
-      sections={termsSections.map((section) => ({
-        ...section,
-        body: <p className="text-base leading-[1.7] text-ivory/85">{section.body}</p>,
-      }))}
-    />
+    <LegalLayout title="Términos y Condiciones" updated={termsUpdated} sections={termsSections} />
   );
 }

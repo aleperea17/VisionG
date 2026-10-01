@@ -44,7 +44,7 @@ Todo el contenido vive en `content/`, sin CMS:
 - `content/process.ts` — pasos del proceso
 - `content/cases.ts` — casos y cifras (`showMetric`)
 - `content/faq.ts` — preguntas frecuentes (también alimentan el JSON-LD)
-- `content/terms.ts`, `content/privacy.tsx`, `content/refunds.tsx` — páginas legales
+- `content/terms.tsx`, `content/privacy.tsx`, `content/refunds.tsx` — páginas legales
 
 ## Deploy en Vercel (plan Hobby)
 
@@ -58,17 +58,6 @@ No hace falta dominio propio, base de datos ni servicios de pago. El límite de 
 
 Cuando exista un dominio propio, cambia `NEXT_PUBLIC_SITE_URL` y, si quieres dejar Web3Forms, pasa `LEAD_PROVIDER=resend` con `RESEND_API_KEY` y `CONTACT_TO_EMAIL`. El formulario no se toca: la lógica está en `lib/sendLead.ts`.
 
-## TODO pendientes antes de publicar
+## Pendiente antes de publicar
 
-- [ ] Pegar el texto completo de «Términos y Condiciones — VisionG LLC» en `content/terms.ts`.
-- [ ] Revisar la política de privacidad con un asesor legal (`content/privacy.tsx`).
-- [ ] Alinear reembolsos y cancelaciones con los contratos reales (`content/refunds.tsx`).
-- [ ] Reemplazar `[FECHA]` en términos, privacidad y reembolsos.
-- [ ] Reemplazar `[X días hábiles]` en la política de reembolsos.
-- [ ] Reemplazar los proveedores externos de la privacidad: hosting, email, CRM y procesador de pagos.
-- [ ] Confirmar el respaldo de cada cifra en `content/cases.ts`. Si no hay respaldo, poner `showMetric: false`.
-- [ ] Reemplazar `[EMAIL DE CONTACTO — ej. visiongllc@gmail.com]` en `content/site.ts`.
-- [ ] Reemplazar `[@visiong]` y `instagramUrl`.
-- [ ] Reemplazar `[+XX XXX XXX XXXX]` o dejar `whatsapp` en `""` para ocultarlo.
-- [ ] Colocar la foto profesional en `public/nicolas-aliaga.jpg` y pasar `founder.hasPhoto` a `true`.
-- [ ] Crear la access key de Web3Forms y cargarla en Vercel.
+- [ ] Cargar la `WEB3FORMS_ACCESS_KEY` real en Vercel. Sin esa clave el formulario no envía el email. `LEAD_WEBHOOK_URL` queda sin definir.

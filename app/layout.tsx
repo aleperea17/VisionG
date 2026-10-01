@@ -71,7 +71,7 @@ function organizationJsonLd() {
     data.email = site.email;
   }
 
-  if (!isPlaceholder(site.instagramHandle)) {
+  if (!isPlaceholder(site.instagram)) {
     data.sameAs = [site.instagramUrl];
   }
 

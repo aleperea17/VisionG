@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { legalLinks, site } from "@/content/site";
-import { isPlaceholder } from "@/lib/site-url";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -20,37 +19,25 @@ export function Footer() {
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold-500">Contacto</p>
           <ul className="mt-4 space-y-3 break-words text-sm text-ivory/85">
             <li>
-              {isPlaceholder(site.email) ? (
-                <span>{site.email}</span>
-              ) : (
-                <a href={`mailto:${site.email}`} className="hover:text-gold-400">
-                  {site.email}
-                </a>
-              )}
+              <a href={`mailto:${site.email}`} className="hover:text-gold-400">
+                {site.email}
+              </a>
             </li>
             <li>
-              {isPlaceholder(site.instagramHandle) ? (
-                <span>Instagram: {site.instagramHandle}</span>
-              ) : (
-                <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-gold-400">
-                  Instagram: {site.instagramHandle}
-                </a>
-              )}
+              <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-gold-400">
+                Instagram: {site.instagram}
+              </a>
             </li>
             {site.whatsapp ? (
               <li>
-                {isPlaceholder(site.whatsapp) ? (
-                  <span>WhatsApp: {site.whatsapp}</span>
-                ) : (
-                  <a
-                    href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-gold-400"
-                  >
-                    WhatsApp: {site.whatsapp}
-                  </a>
-                )}
+                <a
+                  href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold-400"
+                >
+                  WhatsApp: {site.whatsapp}
+                </a>
               </li>
             ) : null}
             <li>

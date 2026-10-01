@@ -22,7 +22,7 @@ export function About() {
         </Reveal>
 
         <div className="mt-16 grid items-center gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-          <Portrait alt={`Retrato profesional de ${site.founder.name}`} />
+          <Portrait ratio="3/4" alt="Nicolás Aliaga, Founder & Consultant de VisionG" />
           <Reveal>
             <h3 className="font-serif text-4xl text-ivory">{site.founder.name}</h3>
             <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-gold-500">{site.founder.role}</p>

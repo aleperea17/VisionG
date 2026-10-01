@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/Button";
-import { Portrait } from "@/components/ui/Portrait";
 import { Reveal } from "@/components/ui/Reveal";
 
 const highlights = ["Consultoría personalizada", "Marketing", "Ventas"];
@@ -11,7 +10,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-16 top-8 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(201,162,74,0.12),transparent_68%)]"
         aria-hidden="true"
       />
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-4 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <div className="mx-auto w-full max-w-6xl px-4">
         <Reveal>
           <h1 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[1.05] text-ivory">
             Construimos <span className="gold-text">sistemas de marketing y ventas</span> para negocios digitales.
@@ -32,9 +31,6 @@ export function Hero() {
               </span>
             ))}
           </p>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <Portrait alt="Retrato profesional de Nicolás Aliaga, founder de VisionG" />
         </Reveal>
       </div>
     </section>
